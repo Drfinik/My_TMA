@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TMA Navigation Demo</title>
+    <title>TMA Navigation</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 </head>
@@ -15,9 +15,10 @@
             <button id="theme-toggle">🌓</button>
         </header>
 
-        <!-- Основной контент -->
-        <main>
-            <section id="home-page" class="page">
+        <!-- Контейнер для страниц -->
+        <main class="page-container">
+            <!-- Страницы -->
+            <section id="home-page" class="page active">
                 <div class="card">
                     <h2>Главная</h2>
                     <p>Добро пожаловать в мини-приложение!</p>
@@ -41,7 +42,7 @@
 
         <!-- Нижнее меню -->
         <nav class="navbar">
-            <button class="nav-btn" data-page="home">🏠 Главная</button>
+            <button class="nav-btn active" data-page="home">🏠 Главная</button>
             <button class="nav-btn" data-page="profile">👤 Профиль</button>
             <button class="nav-btn" data-page="settings">⚙️ Настройки</button>
         </nav>
