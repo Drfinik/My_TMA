@@ -3,6 +3,8 @@
     --text-color: #000000;
     --primary-color: #0088cc;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --nav-bg: #ffffff;
+    --card-bg: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -10,6 +12,8 @@
     --text-color: #ffffff;
     --primary-color: #3aa3e3;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --nav-bg: #2c2c2c;
+    --card-bg: #2c2c2c;
 }
 
 * {
@@ -17,30 +21,30 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Arial, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-body {
+html, body {
+    height: 100%;
     background: var(--bg-color);
     color: var(--text-color);
-    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
-    margin-bottom: 20px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
 }
 
 .header h1 {
@@ -53,20 +57,40 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    padding: 5px;
+}
+
+.page-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 .page {
-    display: none;
-    flex: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+    transform: translateX(20px);
+    transition: none;
 }
 
 .page.active {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .card {
-    background: var(--bg-color);
+    background: var(--card-bg);
     border-radius: 12px;
     padding: 20px;
     box-shadow: var(--card-shadow);
@@ -76,8 +100,8 @@ body {
 .navbar {
     display: flex;
     justify-content: space-around;
-    padding: 15px 0;
-    background: var(--bg-color);
+    padding: 12px 0;
+    background: var(--nav-bg);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -89,6 +113,7 @@ body {
     opacity: 0.6;
     padding: 8px 12px;
     border-radius: 8px;
+    color: var(--text-color);
 }
 
 .nav-btn.active {
@@ -98,8 +123,11 @@ body {
 }
 
 @media (max-width: 480px) {
-    .app {
-        padding: 10px;
+    .header {
+        padding: 12px 15px;
+    }
+    .page {
+        padding: 15px;
     }
     .nav-btn {
         font-size: 0.9rem;
