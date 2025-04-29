@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMA Navigation Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Шапка -->
+        <header class="header">
+            <h1>Мой TMA</h1>
+            <button id="theme-toggle">🌓</button>
+        </header>
+
+        <!-- Основной контент -->
+        <main>
+            <section id="home-page" class="page">
+                <div class="card">
+                    <h2>Главная</h2>
+                    <p>Добро пожаловать в мини-приложение!</p>
+                </div>
+            </section>
+            
+            <section id="profile-page" class="page">
+                <div class="card">
+                    <h2>Профиль</h2>
+                    <p>Ваши личные данные</p>
+                </div>
+            </section>
+            
+            <section id="settings-page" class="page">
+                <div class="card">
+                    <h2>Настройки</h2>
+                    <p>Настройте приложение</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Нижнее меню -->
+        <nav class="navbar">
+            <button class="nav-btn" data-page="home">🏠 Главная</button>
+            <button class="nav-btn" data-page="profile">👤 Профиль</button>
+            <button class="nav-btn" data-page="settings">⚙️ Настройки</button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #0088cc;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --primary-color: #3aa3e3;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.app {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.page {
+    display: none;
+    flex: 1;
+    width: 100%;
+}
+
+.page.active {
+    display: block;
+}
+
+.card {
+    background: var(--bg-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    background: var(--bg-color);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.nav-btn.active {
+    opacity: 1;
+    color: var(--primary-color);
+    background: rgba(0, 136, 204, 0.1);
+}
+
+@media (max-width: 480px) {
+    .app {
+        padding: 10px;
+    }
+    .nav-btn {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+    }
+}
